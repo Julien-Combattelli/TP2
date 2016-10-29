@@ -1,3 +1,3 @@
 # TP2
 
-Some awesome project !
+One-Wire software to control DS18B20
