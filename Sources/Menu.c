@@ -6,8 +6,9 @@
  */
 
 #include "Menu.h"
-#include "string.h"
-#include "My_terminal.h"
+#include <string.h>
+#include "Terminal.h"
+#include "Console.h"
 
 typedef struct Menu_item_s
 {
@@ -36,17 +37,18 @@ void Menu_add_item(char* item_name, func_ptr function)
 
 void Menu_print(void)
 {
-	PRINTF("\033[2J");
-	PRINTF("\033[0;0H");
+	Terminal_Clear();
+	Terminal_CRLF();
 
-	PRINTF("%s\n\r", menu_items[0].name);
+	Terminal_SendStr(menu_items[0].name);
+	Terminal_CRLF();
 
 	for(int i = 1 ; i < menu_item_count ; i++)
 	{
 		PRINTF("%d : %s\n\r", i, menu_items[i].name);
 	}
 
-	PRINTF("?\n\r");
+	Terminal_SendStr("?\n\r");
 }
 
 void Menu_choose(uint8_t item_number)

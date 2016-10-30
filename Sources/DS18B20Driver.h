@@ -8,7 +8,7 @@
 #ifndef SOURCES_DS18B20DRIVER_H_
 #define SOURCES_DS18B20DRIVER_H_
 
-#include "stdint.h"
+#include <stdint.h>
 
 typedef struct DS18B20_scratchpad_s
 {
@@ -23,16 +23,8 @@ typedef struct DS18B20_scratchpad_s
 
 } DS18B20_scratchpad_t;
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 float DS18B20_readTemperature();
 
 void DS18B20_readScratchpad(DS18B20_scratchpad_t* scratchpad);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif /* SOURCES_DS18B20DRIVER_H_ */

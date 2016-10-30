@@ -7,7 +7,7 @@
 
 #include "tp2.h"
 #include "Menu.h"
-#include "My_terminal.h"
+#include "Terminal.h"
 #include "1Wire/onewire.h"
 #include "DS18B20Driver.h"
 #include "gpio1.h"
@@ -36,13 +36,13 @@ void read_sensor_temperature()
 void set_gpio_off()
 {
 	GPIO_DRV_WritePinOutput(relais, 0);
-	PRINTF("relais off\n\r");
+	Terminal_SendStr("relais off\n\r");
 }
 
 void set_gpio_on()
 {
 	GPIO_DRV_WritePinOutput(relais, 1);
-	PRINTF("relais on\n\r");
+	Terminal_SendStr("relais on\n\r");
 }
 
 void tp2_run()
